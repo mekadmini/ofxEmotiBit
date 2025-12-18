@@ -9,7 +9,7 @@ on:
       - '**.md'
 
 env:
-  OF_VER: v0.11.2
+  OF_VER: 0.11.2
   OF_NAME: of_v0.11.2_vs2017_release
   OF_ROOT: ${{ github.workspace }}\of_v0.11.2_vs2017_release
   ISCC_PATH: "C:\\Program Files (x86)\\Inno Setup 6\\ISCC.exe"
