@@ -1,4 +1,4 @@
-name: Build and Package Windows
+name: Build and Package Windows # Trigger workflow
 
 on:
   push:
