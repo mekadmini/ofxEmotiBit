@@ -70,17 +70,17 @@ jobs:
     - name: Build EmotiBitOscilloscope
       working-directory: ${{ env.OF_ROOT }}/addons/ofxEmotiBit/EmotiBitOscilloscope
       run: |
-        msbuild EmotiBitOscilloscope.sln /p:Configuration=Release /p:Platform=x64
+        msbuild EmotiBitOscilloscope.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
 
     - name: Build EmotiBitDataParser
       working-directory: ${{ env.OF_ROOT }}/addons/ofxEmotiBit/EmotiBitDataParser
       run: |
-        msbuild EmotiBitDataParser.sln /p:Configuration=Release /p:Platform=x64
+        msbuild EmotiBitDataParser.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
 
     - name: Build EmotiBitFirmwareInstaller
       working-directory: ${{ env.OF_ROOT }}/addons/ofxEmotiBit/EmotiBitFirmwareInstaller
       run: |
-        msbuild EmotiBitFirmwareInstaller.sln /p:Configuration=Release /p:Platform=x64
+        msbuild EmotiBitFirmwareInstaller.sln /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
 
     # Packaging Steps
     - name: Setup Inno Setup
