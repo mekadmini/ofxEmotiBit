@@ -992,7 +992,23 @@ void ofApp::processSlowResponseMessage(vector<string> splitPacket)
 				oscMessages.resize(oscAddresses.size());
 				for (int a = 0; a < oscAddresses.size(); a++)
 				{
-					oscMessages.at(a).setAddress(oscAddresses.at(a));
+					string address = oscAddresses.at(a);
+					// Check if we have a connected device ID to inject
+					if (emotiBitWiFi.connectedEmotibitIdentifier.length() > 0)
+					{
+						// Assume address format: /EmotiBit/StationID/Tag...
+						// Split path to find identifying parts
+						vector<string> parts = ofSplitString(address, "/");
+						// parts[0] is empty due to leading slash
+						// parts[1] is likely "EmotiBit"
+						// parts[2] is the StationID we want to replace
+						if (parts.size() >= 3 && parts[1] == "EmotiBit")
+						{
+							parts[2] = emotiBitWiFi.connectedEmotibitIdentifier;
+							address = ofJoinString(parts, "/");
+						}
+					}
+					oscMessages.at(a).setAddress(address);
 				}
 			}
 
