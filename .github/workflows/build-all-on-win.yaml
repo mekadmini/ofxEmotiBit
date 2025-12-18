@@ -27,7 +27,7 @@ jobs:
           cp -r ..\\$(echo ${{ github.repository }} | cut -d '/' -f 2) ${{ vars.ADDONS_DIR }}
   build-oscilloscope:
     needs: clone-to-OF_ROOT
-    runs-on: [self-hosted, Windows]
+    runs-on: [windows-latest]
     environment: RUNNER-WINDOWS
     steps: 
       - name: build using MSBuild
